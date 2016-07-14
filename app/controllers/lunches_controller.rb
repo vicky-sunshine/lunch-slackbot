@@ -69,6 +69,6 @@ class LunchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lunch_params
-      params.fetch(:lunch, {})
+      params.require(:lunch).permit(:name, :location, :phone, :description)
     end
 end

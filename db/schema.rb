@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20160714075011) do
 
   create_table "lunches", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name"
     t.string   "location"
     t.string   "phone"
     t.text     "description"
