@@ -16,6 +16,8 @@ gem 'slack-api'
 gem 'whenever', :require => false
 gem 'settingslogic'
 
+gem 'bootstrap-sass'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
