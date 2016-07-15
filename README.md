@@ -26,7 +26,7 @@ Go to `localhost:3000/lunches` to maintain your own list.
 
 ## Prepare Slackbot
 #### Slack Settings
-Fill the Slack Information in `config/slack_settings.yml`, and you can use
+Fill the Slack Token sInformation in `config/slack_settings.yml`, and you can use
 ```shell
 $ rake slackbot:channels
 ```
