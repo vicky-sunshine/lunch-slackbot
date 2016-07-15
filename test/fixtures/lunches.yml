@@ -7,6 +7,9 @@
 one:
   name: 'subway'
   location: '承德路'
+  phone: '1122'
+  description: '1122'
+
 # column: value
 #
 two: {}

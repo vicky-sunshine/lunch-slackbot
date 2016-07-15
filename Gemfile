@@ -17,6 +17,7 @@ gem 'whenever', :require => false
 gem 'settingslogic'
 
 gem 'bootstrap-sass'
+gem "slim-rails"
 
 group :development, :test do
   gem 'byebug', platform: :mri

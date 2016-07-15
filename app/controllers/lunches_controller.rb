@@ -25,11 +25,11 @@ class LunchesController < ApplicationController
   # POST /lunches.json
   def create
     @lunch = Lunch.new(lunch_params)
-
     respond_to do |format|
       if @lunch.save
-        format.html { redirect_to @lunch, notice: 'Lunch was successfully created.' }
-        format.json { render :show, status: :created, location: @lunch }
+        @lunches = Lunch.all
+        format.html { render :index, notice: 'Lunch was successfully updated.' }
+        format.json { render :index, status: :ok }
       else
         format.html { render :new }
         format.json { render json: @lunch.errors, status: :unprocessable_entity }
@@ -42,8 +42,9 @@ class LunchesController < ApplicationController
   def update
     respond_to do |format|
       if @lunch.update(lunch_params)
-        format.html { redirect_to @lunch, notice: 'Lunch was successfully updated.' }
-        format.json { render :show, status: :ok, location: @lunch }
+        @lunches = Lunch.all
+        format.html { render :index, notice: 'Lunch was successfully updated.' }
+        format.json { render :index, status: :ok, location: @lunches }
       else
         format.html { render :edit }
         format.json { render json: @lunch.errors, status: :unprocessable_entity }
@@ -55,9 +56,10 @@ class LunchesController < ApplicationController
   # DELETE /lunches/1.json
   def destroy
     @lunch.destroy
+    @lunches = Lunch.all
     respond_to do |format|
-      format.html { redirect_to lunches_url, notice: 'Lunch was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { render :index, notice: 'Lunch was successfully destroyed.' }
+      format.json { render :index, status: :ok, location: @lunches }
     end
   end
 
@@ -69,6 +71,6 @@ class LunchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lunch_params
-      params.require(:lunch).permit(:name, :location, :phone, :description)
+      params.permit(:name, :location, :phone, :description)
     end
 end
